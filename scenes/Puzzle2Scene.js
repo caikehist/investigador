@@ -17,14 +17,14 @@ export default class Puzzle2Scene extends Phaser.Scene {
     create() {
         const { width, height } = this.sys.game.config;
 
-        this.add.text(width / 2, 50, 'Minigame 1: Monte o Quebra-Cabeça!', {
-            fontSize: '32px',
+        this.add.text(width / 2, 50, 'Patrimônio 2: Monte o Quebra-Cabeça\nConjunto da basílica do Senhor Bom Jesus de Matosinhos', {
+            fontSize: '28px',
             fill: '#FFF'
         }).setOrigin(0.5);
 
         // --- Novas Variáveis para o Quebra-Cabeça ---
-        const imageWidth = 640; // Largura desejada da imagem no jogo
-        const imageHeight = 480; // Altura desejada da imagem no jogo
+        const imageWidth = 800; // Largura desejada da imagem no jogo
+        const imageHeight = 600; // Altura desejada da imagem no jogo
         const cols = 2; // Número de colunas
         const rows = 2; // Número de linhas
         const pieceWidth = imageWidth / cols; // Largura de cada peça (200)
@@ -116,7 +116,7 @@ export default class Puzzle2Scene extends Phaser.Scene {
         if (allPlaced) {
             this.winText.setText('PARABÉNS! Quebra-Cabeça Concluído!').setFill('#00FF00');
             // Aqui você chamaria a próxima cena/minigame:
-            //this.time.delayedCall(2000, () => this.scene.start('scenes/Puzzle2Scene'));
+            this.time.delayedCall(2000, () => this.scene.start('Puzzle3Scene'));
         }
     }
 
