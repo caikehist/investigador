@@ -115,6 +115,10 @@ export default class Puzzle2Scene extends Phaser.Scene {
         
         if (allPlaced) {
             this.winText.setText('PARABÉNS! Quebra-Cabeça Concluído!').setFill('#00FF00');
+            
+            // 1. EMITE A PONTUAÇÃO (Exemplo: 100 pontos pela primeira fase)
+            this.game.events.emit('updateScore', 15)
+
             // Aqui você chamaria a próxima cena/minigame:
             this.time.delayedCall(2000, () => this.scene.start('Puzzle3Scene'));
         }
