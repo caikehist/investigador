@@ -119,6 +119,10 @@ export default class GameScene extends Phaser.Scene {
         // 1. EMITE A PONTUAÇÃO (Exemplo: 100 pontos pela primeira fase)
         this.game.events.emit('updateScore', 10);
 
+        // 2. SALVA O PROGRESSO: Registra que a próxima cena é a FaseFinalScene
+        localStorage.setItem('phaser_saved_stage', 'Puzzle2Scene'); // << NOVO CÓDIGO AQUI
+        
+
         // CORRIGIDO: O nome da cena no construtor da segunda cena é 'Puzzle2Scene'
         this.time.delayedCall(2000, () => this.scene.start('Puzzle2Scene')); // << AQUI ESTÁ A MUDANÇA
     }

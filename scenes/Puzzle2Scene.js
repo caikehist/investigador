@@ -119,6 +119,8 @@ export default class Puzzle2Scene extends Phaser.Scene {
             // 1. EMITE A PONTUAÇÃO (Exemplo: 100 pontos pela primeira fase)
             this.game.events.emit('updateScore', 15)
 
+            // 2. SALVA O PROGRESSO: Registra que a próxima cena é a FaseFinalScene
+            localStorage.setItem('phaser_saved_stage', 'Puzzle3Scene'); // << NOVO CÓDIGO AQUI
             // Aqui você chamaria a próxima cena/minigame:
             this.time.delayedCall(2000, () => this.scene.start('Puzzle3Scene'));
         }
